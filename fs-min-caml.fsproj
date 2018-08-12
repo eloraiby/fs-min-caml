@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>fs_min_caml</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Ty.fs" />
+    <Compile Include="Id.fs" />
+    <Compile Include="Syntax.fs" />
+    <Compile Include="Typing.fs" />
+    <Compile Include="KNormal.fs" />
+    <Compile Include="Alpha.fs" />
+    <Compile Include="Beta.fs" />
+    <Compile Include="Assoc.fs" />
+    <Compile Include="Closure.fs" />
+    <Compile Include="ConstFold.fs" />
+    <Compile Include="Inline.fs"/>
+    <Compile Include="Elim.fs" />
+
+    <FsYacc Include="Parser.fsy">
+      <OtherFlags>--module Parser</OtherFlags>
+    </FsYacc>
+    <FsLex Include="Lexer.fsl">
+      <OtherFlags>--unicode</OtherFlags>
+    </FsLex>    
+
+    <Compile Include="Parser.fs" />
+    <Compile Include="Lexer.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Argu" Version="5.1.0" />
+    <PackageReference Include="FsLexYacc" Version="7.0.6" />
+  </ItemGroup>
+
+</Project>
